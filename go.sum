@@ -6,3 +6,5 @@ github.com/rodrigocfd/windigo v0.0.0-20211117033924-e2955254c4ce h1:9Xkz6TZ7F5qm
 github.com/rodrigocfd/windigo v0.0.0-20211117033924-e2955254c4ce/go.mod h1:MW/87P744bxkvl5bw4PIAt9OHy56IyIqIRcotQUpG50=
 github.com/rogeecn/windigo v0.0.0-20211117063629-7fd4674fe401 h1:L3XN+QIyVVepxTCFhMQbMLT6e8nI+RFA9X67ujAB/W8=
 github.com/rogeecn/windigo v0.0.0-20211117063629-7fd4674fe401/go.mod h1:mJ4rGWAeua45qt4VEp8hHutv7Mz+yB5CbbyiyntjqEE=
+github.com/rogeecn/wingo v0.0.0-20211117072823-54fb436fec11 h1:jAN4ou7lQiOJG28iohK8lUEk4hThkV28jHlhjPB2Afg=
+github.com/rogeecn/wingo v0.0.0-20211117072823-54fb436fec11/go.mod h1:9RAZN5eUFOR+tUwoCdH86Sqo1FW/wpH8zAZWL+T2OP4=

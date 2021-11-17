@@ -4,16 +4,16 @@ import (
 	"encoding/binary"
 	"fmt"
 	"github.com/axgle/mahonia"
-	"github.com/rogeecn/windigo/win"
+	"github.com/rogeecn/wingo"
 	"math"
 	"strings"
 )
 
 type HProcess struct {
-	hProcess win.HPROCESS
+	hProcess wingo.HPROCESS
 }
 
-func New(h win.HPROCESS) HProcess {
+func New(h wingo.HPROCESS) HProcess {
 	return HProcess{h}
 }
 
