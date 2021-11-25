@@ -17,9 +17,18 @@ func New(h win.HPROCESS) HProcess {
 	return HProcess{h}
 }
 
+func (h HProcess) read(address, size uint32) ([]byte, error) {
+	buffer := make([]byte, size)
+	_, err := h.hProcess.ReadProcessMemory(uintptr(address), buffer)
+	if err != nil {
+		return nil, err
+	}
+	return buffer, err
+}
+
 // Read process memory and convert the returned data to byte
 func (h HProcess) ReadByte(lpBaseAddress uint32) (byte, error) {
-	data, err := h.hProcess.ReadProcessMemory(lpBaseAddress, 4)
+	data, err := h.read(lpBaseAddress, 4)
 	if err != nil {
 		return 0, err
 	}
@@ -29,7 +38,8 @@ func (h HProcess) ReadByte(lpBaseAddress uint32) (byte, error) {
 
 // Read process memory and convert the returned data to uint32
 func (h HProcess) ReadUint32(lpBaseAddress uint32) (uint32, error) {
-	data, err := h.hProcess.ReadProcessMemory(lpBaseAddress, 4)
+	data, err := h.read(lpBaseAddress, 4)
+
 	if err != nil {
 		return 0, err
 	}
@@ -38,7 +48,8 @@ func (h HProcess) ReadUint32(lpBaseAddress uint32) (uint32, error) {
 
 // Read process memory and convert the returned data to float
 func (h HProcess) ReadFloat32(lpBaseAddress uint32) (float32, error) {
-	data, err := h.hProcess.ReadProcessMemory(lpBaseAddress, 8)
+	data, err := h.read(lpBaseAddress, 8)
+
 	if err != nil {
 		return 0, err
 	}
@@ -47,7 +58,7 @@ func (h HProcess) ReadFloat32(lpBaseAddress uint32) (float32, error) {
 
 // Read process memory and convert the returned data to string
 func (h HProcess) ReadString(lpBaseAddress uint32, size uint32) (ConvertString, error) {
-	data, err := h.hProcess.ReadProcessMemory(lpBaseAddress, size)
+	data, err := h.read(lpBaseAddress, size)
 	if err != nil {
 		return ConvertString{}, err
 	}
